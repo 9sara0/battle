@@ -3,7 +3,7 @@ require 'spec_helper'
 
 RSpec.feature "Adding names" do
   scenario "User enters a new name" do
-    visit "/"
+    visit "/names"
 
     fill_in :player_1_name, :with => "Sarah"
     fill_in :player_2_name, :with => "Prashant"
