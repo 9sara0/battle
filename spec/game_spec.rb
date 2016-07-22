@@ -5,8 +5,12 @@ describe Game do
   let(:player_1)    { double :player_1 }
   let(:player_2)     { double :player_2 }
   let(:player) { double :player }
-  #let(:current_turn) { double :current_turn }
   subject(:game) { described_class.new(player_1, player_2) }
+
+  it 'returns an instance of Game' do
+    Game.create_game(player_1, player_2)
+    expect(Game.game_instance).to be_an_instance_of(Game)
+  end
 
   describe '#player_1' do
     it 'retrieves player one' do
