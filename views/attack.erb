@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 
+<% if @game.game_over(@game.player_1) %>
+<%= @game.player_1.name %> loses the game
+<% elsif @game.game_over(@game.player_2) %>
+<%= @game.player_2.name %> loses the game
+<% end %>
+
 <% if @game.current_turn == @game.player_1 %>
 <h3>  <%= @game.player_1.name %> attacked <%= @game.player_2.name %> </h3>
 <h3>  <%= @game.player_1.name %> reduced <%= @game.player_2.name %>'s HP to <%= @game.player_2.hit_points %> </h3>

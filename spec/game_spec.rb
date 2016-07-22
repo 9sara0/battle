@@ -4,6 +4,7 @@ describe Game do
 
   let(:player_1)    { double :player_1 }
   let(:player_2)     { double :player_2 }
+  let(:player) { double :player }
   #let(:current_turn) { double :current_turn }
   subject(:game) { described_class.new(player_1, player_2) }
 
@@ -32,6 +33,16 @@ describe Game do
     end
   end
 
+  describe '#game_over' do
+   it 'loses the game' do
+     allow(player).to receive(:alive?).and_return(false)
+     expect(game.game_over(player)).to eq true
+   end
 
+   it 'allows the game to continue' do
+     allow(player).to receive(:alive?).and_return(true)
+     expect(game.game_over(player)).to eq false
+   end
+  end
 
 end

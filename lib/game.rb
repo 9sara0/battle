@@ -9,7 +9,6 @@ class Game
     @current_turn = player_1
   end
 
-
   def player_1
     @players.first
   end
@@ -29,6 +28,10 @@ class Game
 
   def opponent_of(the_player)
     @players.select { |player| player != the_player }.first
+  end
+
+  def game_over(player)
+    !(player.alive?)
   end
 
 end
