@@ -4,7 +4,7 @@ RSpec.feature "Switch turns", :type => :feature do
     sign_in_and_play
     expect(page).to have_content "It is Nomi's turn"
   end
-
+  
   scenario "It switches turns" do
     sign_in_and_play
     click_button('Attack')

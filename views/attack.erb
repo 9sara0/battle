@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 
-
-
+<% if @game.current_turn == @game.player_1 %>
 <h3>  <%= @game.player_1.name %> attacked <%= @game.player_2.name %> </h3>
 <h3>  <%= @game.player_1.name %> reduced <%= @game.player_2.name %>'s HP to <%= @game.player_2.hit_points %> </h3>
+<% else %>
+<h3>  <%= @game.player_2.name %> attacked <%= @game.player_1.name %> </h3>
+<h3>  <%= @game.player_2.name %> reduced <%= @game.player_1.name %>'s HP to <%= @game.player_1.hit_points %> </h3>
+<%end%>
 
-<form action="/play">
+<form action="/switch_turns" method="post">
   <input type="submit" value="Switch turns">
 </formn>
